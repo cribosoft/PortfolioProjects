@@ -1,6 +1,13 @@
 /*
 
 Cleaning Data in SQL Queries
+In this project, I took a raw Nashville Housing dataset and transformed it in SQL Server to make it more usable for analysis. 
+I focused on data integrity and standardization by
+Standardizing Date Formats: Converting inconsistent entries into a uniform Date format.
+Handling Missing Data: Populating null property addresses using Self-Joins based on Parcel IDs.
+Parsing Multi-part Fields: Breaking out Address, City, and State into individual columns using SUBSTRING and PARSENAME.
+Removing Duplicates: Identifying and deleting redundant records using CTEs and Window Functions (ROW_NUMBER).
+Data Uniformity: Using CASE statements to standardize 'Sold as Vacant' entries from Y/N to Yes/No.  
 
 */
 
@@ -281,6 +288,7 @@ DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress, SaleDate
 --FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
 --    'Excel 12.0; Database=C:\Users\alexf\OneDrive\Documents\SQL Server Management Studio\Nashville Housing Data for Data Cleaning Project.csv', [Sheet1$]);
 --GO
+
 
 
 
