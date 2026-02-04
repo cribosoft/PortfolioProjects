@@ -20,7 +20,7 @@ This SQL script answers essential questions about the COVID-19 pandemic:
 Everything is structured to be easily reused in BI analyses.
 
 4. Project structure
-Covid_Death_data_exploration.sql
+'''Covid_Death_data_exploration.sql
 │
 ├── 01. Raw data exploration
 ├── 02. Case & death analyses
@@ -30,36 +30,36 @@ Covid_Death_data_exploration.sql
 ├── 06. Join with vaccinations
 ├── 07. CTE for cumulative vaccinations
 ├── 08. Temporary table for additional calculations
-└── 09. Final view for BI visualizations
+└── 09. Final view for BI visualizations'''
 
 
 
 5.  Examples of analyses
      -  Mortality rate
-SELECT location, dates,
+'''SELECT location, dates,
        total_cases,
        total_deaths,
        (total_deaths / total_cases) * 100 AS DeathPercentage
 FROM PortfolioProject..CovidDeaths
 WHERE location = 'Romania'
 ORDER BY 1, 2;
-
+'''
 
    -  Percentage of the population infected
-SELECT location, population,
+'''SELECT location, population,
        MAX(total_cases) AS HighestInfectionCount,
        MAX((total_cases / population) * 100) AS PercentPopulationInfected
 FROM PortfolioProject..CovidDeaths
 GROUP BY location, population
-ORDER BY PercentPopulationInfected DESC;
+ORDER BY PercentPopulationInfected DESC;'''
 
 
   -  Cumulative vaccinations (window function)
-SUM(new_vaccinations) OVER (
+```SUM(new_vaccinations) OVER (
     PARTITION BY location
     ORDER BY date
 ) AS RollingPeopleVaccinated
-
+```
 
 
 6. Technologies & concepts used
